@@ -220,13 +220,21 @@ api.interceptors.request.use(
     const urlPath = normalizeUrl(config.url);
     const method = String(config?.method || "get").toLowerCase();
 
-    if (
-      method === "get" &&
-      typeof config.__background === "undefined" &&
-      _postLoginGraceUntil > Date.now() &&
-      urlPath !== "/auth/me"
-    ) {
-      config.__background = true;
+    if (method === "get") {
+      // Remove Content-Type from GET requests. ModSecurity strictly blocks GET requests
+      // that contain a Content-Type header as a Protocol Anomaly / Request Smuggling risk.
+      if (config.headers) {
+        delete config.headers["Content-Type"];
+        delete config.headers["content-type"];
+      }
+      
+      if (
+        typeof config.__background === "undefined" &&
+        _postLoginGraceUntil > Date.now() &&
+        urlPath !== "/auth/me"
+      ) {
+        config.__background = true;
+      }
     }
 
     const needsCookieCredentials =
