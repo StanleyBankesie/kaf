@@ -999,7 +999,7 @@ app.use("/", requireLicense);
 
 const apiPaths = [
   { path: "/licenses", router: licenseRoutes },
-  { path: "/payment-packages", router: paymentPackageRoutes },
+  { path: "/subscription-plans", router: paymentPackageRoutes },
   { path: "/admin", router: adminRoutes },
   { path: "/administration", router: adminRoutes },
   { path: "/backups", router: backupRoutes },

@@ -1713,7 +1713,8 @@ async function ensureLoginBrandingTable() {
   _brandingTableEnsured = true;
 }
 
-router.get("/settings/login-background/meta", async (req, res, next) => {
+// Get login background metadata
+router.get("/settings/login-bg-info", async (req, res, next) => {
   try {
     await ensureLoginBrandingTable();
     const rows = await query(
