@@ -468,7 +468,7 @@ export function setUserHeader(user) {
 const inflightGets = new Map();
 const MAX_CONCURRENT_GETS = Math.max(
   1,
-  Number(import.meta.env.VITE_MAX_CONCURRENT_GETS || 2), // Reduced from 4 to 2 to bypass strict ModSecurity rules
+  Number(import.meta.env.VITE_MAX_CONCURRENT_GETS || 1), // Reduced to 1 to bypass strict ModSecurity rules
 );
 const GET_RETRY_LIMIT = Math.max(
   0,
@@ -622,7 +622,8 @@ function delay(ms) {
 }
 
 function shouldRetryGet(error, attempt) {
-  if (attempt >= GET_RETRY_LIMIT) return false;
+  if (attempt >= Math.max(GET_RETRY_LIMIT, 3)) return false; // Ensure we retry at least 3 times
+  if (error?.response?.status === 500 || error?.response?.status === 502 || error?.response?.status === 403) return true; // Retry on server/WAF errors
   if (error?.response) return false;
   const msg = String(error?.message || "").toLowerCase();
   if (error?.code === "ECONNABORTED" || msg.includes("timeout of"))
