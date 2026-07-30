@@ -123,3 +123,6 @@
 [DEBUG ROUTING] [2026-07-30T15:17:48.448Z] Incoming request: GET /api/payment-packages (Original: /api/payment-packages)
 [DEBUG ROUTING] [2026-07-30T15:24:51.033Z] Incoming request: GET /api/payment-packages (Original: /api/payment-packages)
 [DEBUG ROUTING] [2026-07-30T15:35:08.830Z] Incoming request: GET /api/payment-packages (Original: /api/payment-packages)
+[DEBUG ROUTING] [2026-07-30T16:37:31.321Z] Incoming request: GET /api/payment-packages (Original: /api/payment-packages)
+[DEBUG ROUTING] [2026-07-30T16:37:31.378Z] Incoming request: GET /api/licenses/global-status (Original: /api/licenses/global-status)
+[DEBUG ROUTING] [2026-07-30T16:37:31.584Z] Incoming request: GET /api/admin/settings/login-background/meta (Original: /api/admin/settings/login-background/meta)

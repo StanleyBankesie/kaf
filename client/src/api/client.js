@@ -57,10 +57,10 @@ let API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 if (
   typeof window !== "undefined" &&
-  window.location.hostname.includes("kindtreat.omnisuite-erp.com")
+  window.location.hostname.includes("kaf.omnisuite-erp.com")
 ) {
   // Frontend is kindheart, backend is kindserver
-  API_BASE = "https://kindserver.omnisuite-erp.com/api";
+  API_BASE = "https://kafserver.omnisuite-erp.com/api";
 } else if (!API_BASE) {
   // Default to same-origin so Vite dev proxy handles local API traffic.
   API_BASE = "/api";
