@@ -380,8 +380,8 @@ const allowedOrigins = (() => {
     : [];
 
   // Always allow the production frontend domain by default
-  if (!origins.includes("https://erp.multisolutionseng.com")) {
-    origins.push("https://erp.multisolutionseng.com");
+  if (!origins.includes("https://kaf.omnisuite-erp.com")) {
+    origins.push("https://kaf.omnisuite-erp.com");
   }
   return origins;
 })();
