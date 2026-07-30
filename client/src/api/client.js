@@ -57,9 +57,8 @@ let API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 if (
   typeof window !== "undefined" &&
-  window.location.hostname.includes("kafserver.omnisuite-erp.com")
+  (window.location.hostname === "kaf.omnisuite-erp.com" || window.location.hostname === "kafserver.omnisuite-erp.com")
 ) {
-  //
   API_BASE = "https://kafserver.omnisuite-erp.com/api";
 } else if (!API_BASE) {
   // Default to same-origin so Vite dev proxy handles local API traffic.
