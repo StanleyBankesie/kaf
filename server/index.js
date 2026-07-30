@@ -126,18 +126,6 @@ const serveFrontendFlag = (() => {
 const app = express();
 app.set("trust proxy", 1);
 
-app.use((req, res, next) => {
-  if (
-    req.url.includes("licenses/global-status") ||
-    req.url.includes("login") ||
-    req.url.includes("payment-packages")
-  ) {
-    const logStr = `[DEBUG ROUTING] [${new Date().toISOString()}] Incoming request: ${req.method} ${req.url} (Original: ${req.originalUrl})\n`;
-    fs.appendFileSync(path.join(process.cwd(), "DEBUG_ROUTING.txt"), logStr);
-  }
-  next();
-});
-
 // Hook res.writeHead at the request level to completely strip connection headers,
 // bypassing any custom subclassing by Passenger.
 app.use((req, res, next) => {
