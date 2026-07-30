@@ -1029,6 +1029,45 @@ const apiPaths = [
   { path: "/visitors", router: visitorsRoutes },
 ];
 
+  const modulesRoutes = [
+    { path: "/users", router: userRoutes },
+    { path: "/companies", router: companyRoutes },
+    { path: "/branches", router: branchRoutes },
+    { path: "/payment-packages", router: paymentPackageRoutes },
+  ];
+
+  // Debug Endpoint to view production crash reports directly from the browser
+  app.get("/api/debug-status", async (req, res) => {
+    try {
+      const fs = await import("fs");
+      const path = await import("path");
+      let crashReport = "No crash report found.";
+      const crashPath = path.join(process.cwd(), "CRASH_REPORT.txt");
+      if (fs.existsSync(crashPath)) {
+        crashReport = fs.readFileSync(crashPath, "utf8");
+      }
+      
+      const dbHealth = await (await import("./db/pool.js")).getDbHealth({ probe: true });
+      const dbConfig = await (await import("./db/pool.js")).getDbConfig();
+      
+      res.json({
+        ok: true,
+        dbHealth,
+        dbConfig,
+        crashReport,
+        nodeEnv: process.env.NODE_ENV,
+        cwd: process.cwd()
+      });
+    } catch (err) {
+      res.status(500).json({ error: err.message, stack: err.stack });
+    }
+  });
+
+  modulesRoutes.forEach(({ path, router }) => {
+  app.use(`/api${path}`, router);
+  app.use(path, router);
+});
+
 apiPaths.forEach(({ path, router }) => {
   app.use(`/api${path}`, router);
   app.use(path, router);
