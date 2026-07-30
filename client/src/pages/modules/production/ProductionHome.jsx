@@ -161,18 +161,6 @@ export const productionSections = [
     title: "Intelligence & Analytics",
     features: [
       {
-        name: "Production Dashboard",
-        path: "/production/reports",
-        description: "Comprehensive manufacturing report repository and KPIs",
-        icon: "📊",
-      },
-      {
-        name: "Efficiency Analysis",
-        path: "/production/reports/efficiency",
-        description: "Monitor planned vs actual performance and throughput",
-        icon: "📈",
-      },
-      {
         name: "Variance Reports",
         path: "/production/reports/variance",
         description:
@@ -348,8 +336,6 @@ export default function ProductionHome() {
       />
 
       {/* Reports Routes */}
-      <Route path="reports" element={<ProductionReports />} />
-      <Route path="reports/efficiency" element={<EfficiencyReport />} />
       <Route
         path="reports/variance"
         element={<ProductionPlaceholder title="Material Usage Variance" />}

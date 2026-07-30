@@ -25,9 +25,7 @@ export const MODULES_REGISTRY = {
       { key: "system-log-book", label: "System Log Book Report", type: "feature" },
       { key: "user-login-activity", label: "User Login Activity Report", type: "feature" },
     ],
-    dashboards: [
-      { key: "dashboard", label: "Administration Dashboard", type: "dashboard" }
-    ]
+    dashboards: []
   },
 
   sales: {
@@ -39,7 +37,12 @@ export const MODULES_REGISTRY = {
       { key: "invoices", label: "Invoices", type: "feature" },
       { key: "delivery", label: "Delivery Management", type: "feature" },
       { key: "customers", label: "Customer Management", type: "feature" },
-      { key: "reports", label: "Sales Reports", type: "feature" },
+      { key: "sales-register", label: "Sales Register Report", type: "feature" },
+      { key: "delivery-register", label: "Delivery Register Report", type: "feature" },
+      { key: "sales-return-report", label: "Sales Return Report", type: "feature" },
+      { key: "debtors-balance", label: "Debtors Balance Report", type: "feature" },
+      { key: "sales-profitability", label: "Sales Profitability Report", type: "feature" },
+      { key: "sales-tracking", label: "Sales Tracking Report", type: "feature" },
       { key: "returns", label: "Sales Returns", type: "feature" },
       { key: "price-setup", label: "Price Setup", type: "feature" },
       { key: "discount-schemes", label: "Discount Schemes", type: "feature" },
@@ -48,11 +51,7 @@ export const MODULES_REGISTRY = {
       { key: "prospect-customers", label: "Prospective Customers", type: "feature" },
       { key: "prospect-conversion", label: "Prospect Conversion", type: "feature" },
     ],
-    dashboards: [
-      { key: "sales-overview", label: "Sales Overview Dashboard", type: "dashboard" },
-      { key: "revenue-analytics", label: "Revenue Analytics Dashboard", type: "dashboard" },
-      { key: "customer-analytics", label: "Customer Analytics Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   purchase: {
@@ -72,13 +71,9 @@ export const MODULES_REGISTRY = {
       { key: "purchase-bills-import", label: "Import Purchase Bills", type: "feature" },
       { key: "suppliers", label: "Suppliers", type: "feature" },
       { key: "purchase-returns", label: "Purchase Returns", type: "feature" },
-      { key: "reports", label: "Reports", type: "feature" },
       { key: "setup", label: "Purchase Setup", type: "feature" },
     ],
-    dashboards: [
-      { key: "procurement-overview", label: "Procurement Overview Dashboard", type: "dashboard" },
-      { key: "supplier-analytics", label: "Supplier Analytics Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   inventory: {
@@ -103,12 +98,19 @@ export const MODULES_REGISTRY = {
       { key: "batches", label: "Item Batches Tracking", type: "feature" },
       { key: "stock-taking", label: "Stock Taking", type: "feature" },
       { key: "stock-reorder", label: "Stock Reorder", type: "feature" },
-      { key: "reports", label: "Inventory Reports", type: "feature" },
+      { key: "fast-moving", label: "Fast Moving Report", type: "feature" },
+      { key: "issue-register", label: "Issue Register Report", type: "feature" },
+      { key: "material-return", label: "Material Return Report", type: "feature" },
+      { key: "non-moving", label: "Non Moving Report", type: "feature" },
+      { key: "slow-moving", label: "Slow Moving Report", type: "feature" },
+      { key: "stock-adjustment", label: "Stock Adjustment Report", type: "feature" },
+      { key: "stock-aging-analysis", label: "Stock Aging Analysis Report", type: "feature" },
+      { key: "stock-balances", label: "Stock Balances Report", type: "feature" },
+      { key: "stock-transfer-register", label: "Stock Transfer Register Report", type: "feature" },
+      { key: "stock-value", label: "Stock Value Report", type: "feature" },
+      { key: "stock-verification", label: "Stock Verification Report", type: "feature" },
     ],
-    dashboards: [
-      { key: "inventory-overview", label: "Inventory Overview Dashboard", type: "dashboard" },
-      { key: "stock-analytics", label: "Stock Analytics Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   finance: {
@@ -134,13 +136,24 @@ export const MODULES_REGISTRY = {
       { key: "fixed-assets", label: "Fixed Assets", type: "feature" },
       { key: "opening-balances", label: "Opening Balances", type: "feature", isExclusive: true },
       { key: "pdc-postings", label: "Post-Dated Cheques", type: "feature" },
-      { key: "reports", label: "Finance Reports", type: "feature" },
+      { key: "audit-trail", label: "Audit Trail Report", type: "feature" },
+      { key: "balance-sheet", label: "Balance Sheet Report", type: "feature" },
+      { key: "cash-flow", label: "Cash Flow Report", type: "feature" },
+      { key: "chart-of-accounts", label: "Chart Of Accounts Report", type: "feature" },
+      { key: "creditors-ledger", label: "Creditors Ledger Report", type: "feature" },
+      { key: "customer-outstanding", label: "Customer Outstanding Report", type: "feature" },
+      { key: "debtors-ledger", label: "Debtors Ledger Report", type: "feature" },
+      { key: "general-ledger", label: "General Ledger Report", type: "feature" },
+      { key: "journal", label: "Journal Report", type: "feature" },
+      { key: "outstanding-receivable", label: "Outstanding Receivable Report", type: "feature" },
+      { key: "payment-due", label: "Payment Due Report", type: "feature" },
+      { key: "profit-and-loss", label: "Profit And Loss Report", type: "feature" },
+      { key: "ratio-analysis", label: "Ratio Analysis Report", type: "feature" },
+      { key: "supplier-outstanding", label: "Supplier Outstanding Report", type: "feature" },
+      { key: "trial-balance", label: "Trial Balance Report", type: "feature" },
+      { key: "voucher-register", label: "Voucher Register Report", type: "feature" },
     ],
-    dashboards: [
-      { key: "financial-overview", label: "Financial Overview Dashboard", type: "dashboard" },
-      { key: "cash-flow", label: "Cash Flow Dashboard", type: "dashboard" },
-      { key: "budget-analysis", label: "Budget Analysis Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   "human-resources": {
@@ -171,11 +184,7 @@ export const MODULES_REGISTRY = {
       { key: "setup", label: "HR Setup", type: "feature" },
       { key: "hr-reports", label: "HR Reports", type: "feature" },
     ],
-    dashboards: [
-      { key: "hr-overview", label: "HR Overview Dashboard", type: "dashboard" },
-      { key: "attendance-dashboard", label: "Attendance Dashboard", type: "dashboard" },
-      { key: "payroll-dashboard", label: "Payroll Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   maintenance: {
@@ -195,10 +204,7 @@ export const MODULES_REGISTRY = {
       { key: "setup", label: "Maintenance Setup", type: "feature" },
       { key: "material-receipts", label: "Material Receipts", type: "feature" },
     ],
-    dashboards: [
-      { key: "maintenance-overview", label: "Maintenance Overview Dashboard", type: "dashboard" },
-      { key: "asset-analytics", label: "Asset Analytics Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   production: {
@@ -210,13 +216,9 @@ export const MODULES_REGISTRY = {
       { key: "work-orders", label: "Work Orders", type: "feature" },
       { key: "production-planning", label: "Production Planning", type: "feature" },
       { key: "job-cards", label: "Job Cards", type: "feature" },
-      { key: "production-reports", label: "Production Reports", type: "feature" },
       { key: "setup", label: "Manufacturing Setup", type: "feature" },
     ],
-    dashboards: [
-      { key: "production-overview", label: "Production Overview Dashboard", type: "dashboard" },
-      { key: "efficiency-analytics", label: "Efficiency Analytics Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   "project-management": {
@@ -243,10 +245,7 @@ export const MODULES_REGISTRY = {
       { key: "project-income-report", label: "Project Income Report", type: "feature" },
       { key: "project-expense-report", label: "Project Expense Report", type: "feature" },
     ],
-    dashboards: [
-      { key: "project-overview", label: "Project Overview Dashboard", type: "dashboard" },
-      { key: "resource-utilization", label: "Resource Utilization Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   pos: {
@@ -260,16 +259,14 @@ export const MODULES_REGISTRY = {
       { key: "post-to-finance", label: "Post to Finance", type: "feature" },
       { key: "returns", label: "POS Returns", type: "feature" },
       { key: "register", label: "POS Register", type: "feature" },
-      { key: "reports", label: "POS Reports", type: "feature" },
+      { key: "downtime-analysis", label: "Downtime Analysis Report", type: "feature" },
       { key: "dashboard", label: "POS Dashboard", type: "feature" },
       { key: "customer-history", label: "Customer Accounts", type: "feature" },
       { key: "on-hold", label: "On-Hold Sales", type: "feature", path: "/pos/holds" },
       { key: "reconciliation", label: "Sync Reconciliation", type: "feature" },
       { key: "setup", label: "POS Setup", type: "feature" },
     ],
-    dashboards: [
-      { key: "dashboard", label: "POS Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   "business-intelligence": {
@@ -277,15 +274,11 @@ export const MODULES_REGISTRY = {
     icon: "📈",
     features: [
       { key: "dashboards", label: "Dashboard Management", type: "feature" },
-      { key: "reports", label: "Custom Reports", type: "feature" },
       { key: "data-sources", label: "Data Sources", type: "feature" },
       { key: "analytics", label: "Analytics", type: "feature" },
       { key: "bi-reports", label: "BI Reports", type: "feature" },
     ],
-    dashboards: [
-      { key: "bi-overview", label: "BI Overview Dashboard", type: "dashboard" },
-      { key: "executive-dashboard", label: "Executive Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   "executive-overview": {
@@ -295,9 +288,7 @@ export const MODULES_REGISTRY = {
       { key: "dashboard", label: "Executive Dashboard", type: "feature" },
       { key: "kpi-reports", label: "KPI Reports", type: "feature" },
     ],
-    dashboards: [
-      { key: "executive-dashboard", label: "Executive Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
 
   "service-management": {
@@ -317,10 +308,7 @@ export const MODULES_REGISTRY = {
       { key: "visitors-log", label: "Visitors Log Book", type: "feature" },
       { key: "setup", label: "Service Setup", type: "feature" },
     ],
-    dashboards: [
-      { key: "service-overview", label: "Service Overview Dashboard", type: "dashboard" },
-      { key: "billing-analytics", label: "Billing Analytics Dashboard", type: "dashboard" },
-    ]
+    dashboards: []
   },
   transport: {
     name: "Transport",
@@ -346,14 +334,11 @@ export const MODULES_REGISTRY = {
       { key: "maintenance", label: "Maintenance", type: "feature" },
       { key: "breakdowns", label: "Breakdowns", type: "feature" },
       { key: "settings", label: "Transport Settings", type: "feature" },
-      { key: "reports", label: "Reports & Analytics", type: "feature" },
       { key: "income", label: "Transportation Income", type: "feature" },
       { key: "expenses", label: "Transportation Expenses", type: "feature" },
       { key: "expense_log", label: "Expense Logs", type: "feature" }
     ],
-    dashboards: [
-      { key: "transport-dashboard", label: "Transport Dashboard", type: "dashboard" }
-    ]
+    dashboards: []
   },
   
   system: {
