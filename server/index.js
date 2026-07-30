@@ -1029,13 +1029,6 @@ const apiPaths = [
   { path: "/visitors", router: visitorsRoutes },
 ];
 
-  const modulesRoutes = [
-    { path: "/users", router: userRoutes },
-    { path: "/companies", router: companyRoutes },
-    { path: "/branches", router: branchRoutes },
-    { path: "/payment-packages", router: paymentPackageRoutes },
-  ];
-
   // Debug Endpoint to view production crash reports directly from the browser
   app.get("/api/debug-status", async (req, res) => {
     try {
