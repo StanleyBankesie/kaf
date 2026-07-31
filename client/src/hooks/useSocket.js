@@ -70,8 +70,13 @@ export function useSocket() {
     let backendOrigin =
       import.meta.env.VITE_API_PROXY_TARGET || window.location.origin;
       
-    if (typeof window !== "undefined" && (window.location.hostname.includes("kindheart.omnisuite-erp.com") || window.location.hostname.includes("kindtreat.omnisuite-erp.com"))) {
-      backendOrigin = "https://kindserver.omnisuite-erp.com";
+    if (typeof window !== "undefined") {
+      const hostname = window.location.hostname;
+      if (hostname.includes("kindheart") || hostname.includes("kindtreat")) {
+        backendOrigin = "https://kindserver.omnisuite-erp.com";
+      } else if (hostname === "kaf.omnisuite-erp.com" || hostname === "kafserver.omnisuite-erp.com") {
+        backendOrigin = "https://kafserver.omnisuite-erp.com";
+      }
     }
 
     const transportPref = (
