@@ -14,14 +14,8 @@ if (!DEV_MODE) {
       (async () => {
         const cache = await caches.open(ASSET_CACHE);
         await cache.addAll([
-          "/",
-          "/index.html",
-          "/manifest.webmanifest",
-          "/pwa-192x192.png",
-          "/pwa-512x512.png",
-          "/apple-touch-icon.png",
-          "/OMNISUITE_ICON_BLUE.png",
-        ]);
+        "/assets/index-U7Teekpg.js"
+]);
       })(),
     );
   });
