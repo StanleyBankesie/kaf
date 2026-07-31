@@ -1056,10 +1056,7 @@ const apiPaths = [
     }
   });
 
-  modulesRoutes.forEach(({ path, router }) => {
-  app.use(`/api${path}`, router);
-  app.use(path, router);
-});
+
 
 apiPaths.forEach(({ path, router }) => {
   app.use(`/api${path}`, router);
