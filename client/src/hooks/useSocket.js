@@ -82,8 +82,13 @@ export function useSocket() {
     const transportPref = (
       import.meta.env.VITE_SOCKET_TRANSPORT || ""
     ).toLowerCase();
-    const transports =
-      transportPref === "websocket" ? ["websocket"] : ["polling", "websocket"];
+    
+    // Force polling by default to prevent WebSocket upgrade errors on strict Nginx/Plesk servers
+    const transports = transportPref === "websocket" 
+      ? ["websocket"] 
+      : transportPref === "both" 
+        ? ["polling", "websocket"] 
+        : ["polling"];
       
     const disableSockets = import.meta.env.VITE_DISABLE_SOCKETS === "true";
 
