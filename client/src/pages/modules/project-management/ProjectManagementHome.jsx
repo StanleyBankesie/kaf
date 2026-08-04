@@ -287,6 +287,7 @@ function ProjectManagementLanding() {
       description="Strategic project planning and operational execution"
       stats={stats}
       moduleKey="project-management"
+      useSectionNavigation={true}
       headerActions={[
         {
           label: "Dashboard",
