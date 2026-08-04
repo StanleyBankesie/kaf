@@ -312,17 +312,10 @@ export default function ProjectInvoiceForm() {
         ? response.data.items
         : [];
       setCurrencies(arr);
-      const cedi =
-        arr.find(
-          (c) =>
-            String(c.code || c.currency_code || "").toUpperCase() === "GHS",
-        ) ||
-        arr.find((c) =>
-          /ghana|cedi/i.test(String(c.name || c.currency_name || "")),
-        );
+      const baseCur = arr.find((c) => Number(c.is_base) === 1 || c.is_base === true);
       setForm((p) => ({
         ...p,
-        currency_id: p.currency_id || cedi?.id || "",
+        currency_id: p.currency_id || baseCur?.id || "",
         exchange_rate: p.exchange_rate || 1,
       }));
     } catch (error) {
@@ -1226,7 +1219,7 @@ export default function ProjectInvoiceForm() {
                 Download PDF
               </button>
               <Link
-                to="/project-management"
+                to="/project-management?section=Reports%20%26%20Analytics"
                 className="btn-success"
               >
                 Back
@@ -2132,7 +2125,7 @@ export default function ProjectInvoiceForm() {
 
             <div className="flex justify-end gap-3">
               <Link
-                to="/project-management"
+                to="/project-management?section=Reports%20%26%20Analytics"
                 className="btn-success"
               >
                 Cancel

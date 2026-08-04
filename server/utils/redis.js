@@ -270,7 +270,16 @@ export async function cacheDel(...keys) {
  */
 export async function cacheDelPattern(pattern) {
   const r = getRedis();
-  if (!r) return;
+  if (!r) {
+    // MySQL fallback
+    try {
+      const sqlPattern = pattern.replace(/\*/g, '%');
+      await query(`DELETE FROM sys_sessions WHERE id LIKE ?`, [sqlPattern]);
+    } catch (err) {
+      console.error("[Cache Fallback] Error deleting pattern from DB:", err.message);
+    }
+    return;
+  }
   try {
     // r.keys() with keyPrefix set: ioredis prepends the prefix to the pattern
     // but the RETURNED keys from Redis already have the raw prefix baked in.

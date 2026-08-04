@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "dependencies": {
     "adm-zip": "^0.6.0",
     "mysql2": "^3.23.1",

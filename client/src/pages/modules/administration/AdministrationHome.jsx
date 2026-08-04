@@ -31,6 +31,7 @@ import AdminAnalytics from "../business-intelligence/AdminAnalytics.jsx";
 
 export const administrationSections = [
   {
+    icon: "🖥️",
     title: "System Health & Settings",
     badge: "Core",
     items: [
@@ -58,6 +59,7 @@ export const administrationSections = [
     ],
   },
   {
+    icon: "🔒",
     title: "User Management & Access Control",
     badge: "Security",
     items: [
@@ -105,6 +107,7 @@ export const administrationSections = [
     ],
   },
   {
+    icon: "🔄",
     title: "Workflow Engine",
     badge: "Automation",
     items: [
@@ -138,6 +141,7 @@ export const administrationSections = [
     ],
   },
   {
+    icon: "📜",
     title: "Audit & Logs",
     badge: "Compliance",
     items: [
@@ -242,6 +246,7 @@ function AdministrationLanding() {
 
   return (
     <ModuleDashboard
+      useSectionNavigation={true}
       title="Administration"
       description="System configuration and user management"
       headerActions={[

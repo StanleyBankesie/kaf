@@ -23,7 +23,10 @@ export const FEATURES_REGISTRY = {
     dashboards: [
       { feature_key: "administration:system-log-book", type: "dashboard", label: "System Log Book Report", path: "/administration/reports/system-log-book" },
       { feature_key: "administration:user-login-activity", type: "dashboard", label: "User Login Activity Report", path: "/administration/reports/user-login-activity" },
-    ],
+          { feature_key: "administration:admin-active-users", type: "dashboard", label: "Active Users", path: "/administration/reports/admin-active-users" },
+      { feature_key: "administration:admin-role-count", type: "dashboard", label: "Role Count", path: "/administration/reports/admin-role-count" },
+      { feature_key: "administration:admin-recent-logins", type: "dashboard", label: "Recent Logins", path: "/administration/reports/admin-recent-logins" },
+],
   },
 
   // Sales Module: Contains features for managing quotations, sales orders, invoices, and customer relations
@@ -66,7 +69,10 @@ export const FEATURES_REGISTRY = {
     ],
     dashboards: [
 
-    ],
+          { feature_key: "sales:sales-total-revenue", type: "dashboard", label: "Total Revenue", path: "/sales/reports/sales-total-revenue" },
+      { feature_key: "sales:sales-pending-orders", type: "dashboard", label: "Pending Orders", path: "/sales/reports/sales-pending-orders" },
+      { feature_key: "sales:sales-active-customers", type: "dashboard", label: "Active Customers", path: "/sales/reports/sales-active-customers" },
+],
   },
 
   // Purchase Module: Contains features for procurement, purchase orders, RFQs, and supplier management
@@ -108,7 +114,10 @@ export const FEATURES_REGISTRY = {
       { feature_key: "purchase:setup", type: "feature", label: "Purchase Setup", path: "/purchase/setup" },
     ],
     dashboards: [
-    ],
+          { feature_key: "purchase:purchase-total-value", type: "dashboard", label: "Total Purchase Value", path: "/purchase/reports/purchase-total-value" },
+      { feature_key: "purchase:purchase-pending-pos", type: "dashboard", label: "Pending POs", path: "/purchase/reports/purchase-pending-pos" },
+      { feature_key: "purchase:purchase-active-suppliers", type: "dashboard", label: "Active Suppliers", path: "/purchase/reports/purchase-active-suppliers" },
+],
   },
 
   // Inventory Module: Contains features for material requisitions, stock management, and warehousing
@@ -126,7 +135,7 @@ export const FEATURES_REGISTRY = {
       { feature_key: "inventory:grn-local", type: "feature", label: "Material Receipt (GRN) - Local", path: "/inventory/grn-local" },
       { feature_key: "inventory:grn-import", type: "feature", label: "Material Receipt (GRN) - Import", path: "/inventory/grn-import" },
       { feature_key: "inventory:items", type: "feature", label: "Item Management", path: "/inventory/items" },
-      { feature_key: "inventory:item-groups", type: "feature", label: "Item Categories", path: "/inventory/item-groups" },
+
       { feature_key: "inventory:unit-conversions", type: "feature", label: "Unit Conversion", path: "/inventory/unit-conversions" },
       { feature_key: "inventory:warehouses", type: "feature", label: "Warehouse Management", path: "/inventory/warehouses" },
       { feature_key: "inventory:batches", type: "feature", label: "Item Batches Tracking", path: "/inventory/batches" },
@@ -146,7 +155,10 @@ export const FEATURES_REGISTRY = {
       { feature_key: "inventory:stockverificationreport", type: "feature", label: " Stock Verification Report", path: "/inventory/reports/stockverificationreport" },
     ],
     dashboards: [
-    ],
+          { feature_key: "inventory:inventory-total-items", type: "dashboard", label: "Total Items", path: "/inventory/reports/inventory-total-items" },
+      { feature_key: "inventory:inventory-low-stock", type: "dashboard", label: "Low Stock Alerts", path: "/inventory/reports/inventory-low-stock" },
+      { feature_key: "inventory:inventory-warehouses", type: "dashboard", label: "Active Warehouses", path: "/inventory/reports/inventory-warehouses" },
+],
   },
 
   // Finance Module: Contains features for accounting, vouchers, bank reconciliation, and budget management
@@ -190,7 +202,10 @@ export const FEATURES_REGISTRY = {
       { feature_key: "finance:voucherregisterreport", type: "feature", label: " Voucher Register Report", path: "/finance/reports/voucherregisterreport" },
     ],
     dashboards: [
-    ],
+          { feature_key: "finance:finance-cash-balance", type: "dashboard", label: "Cash Balance", path: "/finance/reports/finance-cash-balance" },
+      { feature_key: "finance:finance-ar", type: "dashboard", label: "Accounts Receivable", path: "/finance/reports/finance-ar" },
+      { feature_key: "finance:finance-ap", type: "dashboard", label: "Accounts Payable", path: "/finance/reports/finance-ap" },
+],
   },
 
   // Human Resources Module: Contains features for employee management, payroll, attendance, and leave management
@@ -243,7 +258,10 @@ export const FEATURES_REGISTRY = {
       { feature_key: "maintenance:material-receipts", type: "feature", label: "Material Receipts", path: "/maintenance/material-receipts" },
     ],
     dashboards: [
-    ],
+          { feature_key: "maintenance:maint-open-work-orders", type: "dashboard", label: "Open Work Orders", path: "/maintenance/reports/maint-open-work-orders" },
+      { feature_key: "maintenance:maint-assets-in-maint", type: "dashboard", label: "Assets in Maintenance", path: "/maintenance/reports/maint-assets-in-maint" },
+      { feature_key: "maintenance:maint-total-assets", type: "dashboard", label: "Total Assets", path: "/maintenance/reports/maint-total-assets" },
+],
   },
 
   // Production Module: Contains features for manufacturing processes, BOMs, routings, and work orders
@@ -258,7 +276,10 @@ export const FEATURES_REGISTRY = {
       { feature_key: "production:setup", type: "feature", label: "Manufacturing Setup", path: "/production/setup" },
     ],
     dashboards: [
-    ],
+          { feature_key: "production:prod-active-orders", type: "dashboard", label: "Active Production Orders", path: "/production/reports/prod-active-orders" },
+      { feature_key: "production:prod-completed-orders", type: "dashboard", label: "Completed Orders", path: "/production/reports/prod-completed-orders" },
+      { feature_key: "production:prod-yield", type: "dashboard", label: "Production Yield", path: "/production/reports/prod-yield" },
+],
   },
 
   // Project Management Module: Contains features for project tracking, task management, and resource allocation
@@ -305,7 +326,10 @@ export const FEATURES_REGISTRY = {
       { feature_key: "pos:setup", type: "feature", label: "POS Setup", path: "/pos/setup" },
     ],
     dashboards: [
-    ],
+          { feature_key: "pos:pos-today-sales", type: "dashboard", label: "Today Sales", path: "/pos/reports/pos-today-sales" },
+      { feature_key: "pos:pos-total-transactions", type: "dashboard", label: "Total Transactions", path: "/pos/reports/pos-total-transactions" },
+      { feature_key: "pos:pos-avg-order", type: "dashboard", label: "Average Order Value", path: "/pos/reports/pos-avg-order" },
+],
   },
 
   // Business Intelligence Module: Contains features for custom reports, dashboards, and analytics
@@ -355,11 +379,8 @@ export const FEATURES_REGISTRY = {
   transport: {
     features: [
       { feature_key: "transport:requests", type: "feature", label: "Transport Requests", path: "/transport/requests" },
-      { feature_key: "transport:vehicles", type: "feature", label: "Vehicles", path: "/transport/vehicles" },
-      { feature_key: "transport:drivers", type: "feature", label: "Drivers", path: "/transport/drivers" },
       { feature_key: "transport:trips", type: "feature", label: "Trips & Dispatch", path: "/transport/trips" },
       { feature_key: "transport:fuel", type: "feature", label: "Refuelling", path: "/transport/fuel" },
-      { feature_key: "transport:fuel-bills", type: "feature", label: "Fuel Bills", path: "/transport/fuel-bills" },
       { feature_key: "transport:bills", type: "feature", label: "Transportation Bills", path: "/transport/transportation-bills" },
       { feature_key: "transport:billing", type: "feature", label: "Billing", path: "/transport/billing" },
       { feature_key: "transport:income", type: "feature", label: "Transportation Income", path: "/transport/income" },
@@ -371,7 +392,10 @@ export const FEATURES_REGISTRY = {
       { feature_key: "transport:reports", type: "feature", label: "Reports & Analytics", path: "/transport/reports" }
     ],
     dashboards: [
-    ],
+          { feature_key: "transport:trans-active-vehicles", type: "dashboard", label: "Active Vehicles", path: "/transport/reports/trans-active-vehicles" },
+      { feature_key: "transport:trans-ongoing-trips", type: "dashboard", label: "Ongoing Trips", path: "/transport/reports/trans-ongoing-trips" },
+      { feature_key: "transport:trans-pending-maint", type: "dashboard", label: "Pending Fleet Maintenance", path: "/transport/reports/trans-pending-maint" },
+],
   },
 };
 

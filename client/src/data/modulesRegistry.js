@@ -27,7 +27,10 @@ export const MODULES_REGISTRY = {
     ],
     dashboards: [
 
-    ]
+          { key: "admin-active-users", label: "Active Users", type: "dashboard" },
+      { key: "admin-role-count", label: "Role Count", type: "dashboard" },
+      { key: "admin-recent-logins", label: "Recent Logins", type: "dashboard" },
+]
   },
 
   sales: {
@@ -73,7 +76,10 @@ export const MODULES_REGISTRY = {
 
 
 
-    ]
+          { key: "sales-total-revenue", label: "Total Revenue", type: "dashboard" },
+      { key: "sales-pending-orders", label: "Pending Orders", type: "dashboard" },
+      { key: "sales-active-customers", label: "Active Customers", type: "dashboard" },
+]
   },
 
   purchase: {
@@ -118,7 +124,10 @@ export const MODULES_REGISTRY = {
     dashboards: [
 
 
-    ]
+          { key: "purchase-total-value", label: "Total Purchase Value", type: "dashboard" },
+      { key: "purchase-pending-pos", label: "Pending POs", type: "dashboard" },
+      { key: "purchase-active-suppliers", label: "Active Suppliers", type: "dashboard" },
+]
   },
 
   inventory: {
@@ -137,7 +146,7 @@ export const MODULES_REGISTRY = {
       { key: "grn-local", label: "Material Receipt (GRN) - Local", type: "feature" },
       { key: "grn-import", label: "Material Receipt (GRN) - Import", type: "feature" },
       { key: "items", label: "Item Management", type: "feature" },
-      { key: "item-groups", label: "Item Categories", type: "feature" },
+
       { key: "unit-conversions", label: "Unit Conversion", type: "feature" },
       { key: "warehouses", label: "Warehouse Management", type: "feature" },
       { key: "batches", label: "Item Batches Tracking", type: "feature" },
@@ -159,7 +168,10 @@ export const MODULES_REGISTRY = {
     dashboards: [
 
 
-    ]
+          { key: "inventory-total-items", label: "Total Items", type: "dashboard" },
+      { key: "inventory-low-stock", label: "Low Stock Alerts", type: "dashboard" },
+      { key: "inventory-warehouses", label: "Active Warehouses", type: "dashboard" },
+]
   },
 
   finance: {
@@ -207,7 +219,10 @@ export const MODULES_REGISTRY = {
 
 
 
-    ]
+          { key: "finance-cash-balance", label: "Cash Balance", type: "dashboard" },
+      { key: "finance-ar", label: "Accounts Receivable", type: "dashboard" },
+      { key: "finance-ap", label: "Accounts Payable", type: "dashboard" },
+]
   },
 
   "human-resources": {
@@ -265,7 +280,10 @@ export const MODULES_REGISTRY = {
     dashboards: [
 
 
-    ]
+          { key: "maint-open-work-orders", label: "Open Work Orders", type: "dashboard" },
+      { key: "maint-assets-in-maint", label: "Assets in Maintenance", type: "dashboard" },
+      { key: "maint-total-assets", label: "Total Assets", type: "dashboard" },
+]
   },
 
   production: {
@@ -283,7 +301,10 @@ export const MODULES_REGISTRY = {
     dashboards: [
 
 
-    ]
+          { key: "prod-active-orders", label: "Active Production Orders", type: "dashboard" },
+      { key: "prod-completed-orders", label: "Completed Orders", type: "dashboard" },
+      { key: "prod-yield", label: "Production Yield", type: "dashboard" },
+]
   },
 
   "project-management": {
@@ -337,7 +358,10 @@ export const MODULES_REGISTRY = {
     ],
     dashboards: [
 
-    ]
+          { key: "pos-today-sales", label: "Today Sales", type: "dashboard" },
+      { key: "pos-total-transactions", label: "Total Transactions", type: "dashboard" },
+      { key: "pos-avg-order", label: "Average Order Value", type: "dashboard" },
+]
   },
 
   "business-intelligence": {
@@ -399,14 +423,11 @@ export const MODULES_REGISTRY = {
       { key: "trip_management", label: "Trip Management", type: "feature" },
       { key: "trip_returns", label: "Trip Returns", type: "feature" },
       { key: "tracking", label: "Tracking", type: "feature" },
-      { key: "vehicles", label: "Vehicles", type: "feature" },
       { key: "compliance", label: "Compliance", type: "feature" },
       { key: "servicing", label: "Servicing", type: "feature" },
       { key: "logbooks", label: "Logbooks", type: "feature" },
-      { key: "drivers", label: "Drivers", type: "feature" },
       { key: "fuel", label: "Fuel Logs", type: "feature" },
       { key: "fuel_expenses", label: "Fuel Expenses", type: "feature" },
-      { key: "fuel_bills", label: "Fuel Bills", type: "feature" },
       { key: "transportation_bills", label: "Transportation Bills", type: "feature" },
       { key: "billing", label: "Billing", type: "feature" },
       { key: "routes", label: "Routes", type: "feature" },
@@ -421,7 +442,10 @@ export const MODULES_REGISTRY = {
     ],
     dashboards: [
 
-    ]
+          { key: "trans-active-vehicles", label: "Active Vehicles", type: "dashboard" },
+      { key: "trans-ongoing-trips", label: "Ongoing Trips", type: "dashboard" },
+      { key: "trans-pending-maint", label: "Pending Fleet Maintenance", type: "dashboard" },
+]
   },
   
   system: {
@@ -430,7 +454,10 @@ export const MODULES_REGISTRY = {
     features: [
       { key: "license-renewal", label: "License Renewal Access", type: "feature", isExclusive: true }
     ],
-    dashboards: []
+    dashboards: [      { key: "sys-cpu-usage", label: "System CPU Usage", type: "dashboard" },
+      { key: "sys-memory-usage", label: "System Memory Usage", type: "dashboard" },
+      { key: "sys-active-sessions", label: "Active User Sessions", type: "dashboard" },
+]
   }
 };
 

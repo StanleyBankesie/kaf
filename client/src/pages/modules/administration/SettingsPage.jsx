@@ -233,7 +233,7 @@ export default function SettingsPage() {
               <h1 className="text-2xl font-bold dark:text-brand-300">Administration Settings</h1>
               <p className="text-sm mt-1">Notifications, branding, and document setup</p>
             </div>
-            <Link to="/administration" className="btn btn-secondary">Return to Menu</Link>
+            <Link to="/administration?section=Audit%20%26%20Logs" className="btn btn-secondary">Back</Link>
           </div>
         </div>
       </div>

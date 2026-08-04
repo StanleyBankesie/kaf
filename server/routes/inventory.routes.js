@@ -1798,7 +1798,7 @@ router.get(
            i.item_code, 
            i.item_name, 
            SUM(d.qty_issued) AS issued_qty, 
-           SUM(d.qty_issued * d.cost_price) AS turnover 
+           SUM(d.qty_issued * i.cost_price) AS turnover 
          FROM inv_issue_to_requirement r 
          JOIN inv_issue_to_requirement_details d ON d.issue_id = r.id 
          JOIN inv_items i ON i.id = d.item_id 
@@ -1840,7 +1840,7 @@ router.get(
            i.item_code, 
            i.item_name, 
            SUM(d.qty_issued) AS issued_qty, 
-           SUM(d.qty_issued * d.cost_price) AS turnover 
+           SUM(d.qty_issued * i.cost_price) AS turnover 
          FROM inv_issue_to_requirement r 
          JOIN inv_issue_to_requirement_details d ON d.issue_id = r.id 
          JOIN inv_items i ON i.id = d.item_id 
@@ -2078,6 +2078,10 @@ router.post(
           : [];
       const warehouseId =
         Number(body.warehouseId || 0) > 0 ? Number(body.warehouseId) : null;
+
+      if (!warehouseId) {
+        throw httpError(400, "VALIDATION_ERROR", "Warehouse ID is required for bulk stock upload");
+      }
 
       if (!rows.length) {
         throw httpError(400, "VALIDATION_ERROR", "No rows provided");

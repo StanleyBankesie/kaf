@@ -97,6 +97,66 @@ router.delete(
   projectsController.removeProjectManager
 );
 
+// ===== PROJECT EQUIPMENTS =====
+router.get(
+  "/equipments",
+  requireAuth,
+  requireCompanyScope,
+  requireBranchScope,
+  projectsController.listPmEquipments
+);
+router.post(
+  "/equipments",
+  requireAuth,
+  requireCompanyScope,
+  requireBranchScope,
+  projectsController.createPmEquipment
+);
+router.put(
+  "/equipments/:id",
+  requireAuth,
+  requireCompanyScope,
+  requireBranchScope,
+  projectsController.updatePmEquipment
+);
+router.delete(
+  "/equipments/:id",
+  requireAuth,
+  requireCompanyScope,
+  requireBranchScope,
+  projectsController.deletePmEquipment
+);
+
+// ===== PROJECT RESOURCES =====
+router.get(
+  "/resources",
+  requireAuth,
+  requireCompanyScope,
+  requireBranchScope,
+  projectsController.listPmResources
+);
+router.post(
+  "/resources",
+  requireAuth,
+  requireCompanyScope,
+  requireBranchScope,
+  projectsController.createPmResource
+);
+router.put(
+  "/resources/:id",
+  requireAuth,
+  requireCompanyScope,
+  requireBranchScope,
+  projectsController.updatePmResource
+);
+router.delete(
+  "/resources/:id",
+  requireAuth,
+  requireCompanyScope,
+  requireBranchScope,
+  projectsController.deletePmResource
+);
+
 // ===== TASKS =====
 router.get(
   "/tasks",

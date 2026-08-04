@@ -3,6 +3,7 @@ import { api } from "../../api/client.js";
 import { toast } from "react-toastify";
 import { usePermission } from "../../auth/PermissionContext.jsx";
 import { MODULES_REGISTRY } from "../../data/modulesRegistry.js";
+import { DASHBOARD_CARDS } from "../../data/dashboardCards.js";
 import { useAuth } from "../../auth/AuthContext.jsx";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -459,20 +460,46 @@ export default function LicenseManagement() {
                 </div>
               </div>
 
-              <div className="mt-6">
-                <h3 className="text-lg font-bold border-b pb-2 mb-4">Licensed Modules</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {moduleList.map(mod => (
-                    <label key={mod.code} className="flex items-center space-x-2 p-2 border rounded hover:bg-slate-50 dark:bg-slate-800/50 cursor-pointer">
-                      <input 
-                        type="checkbox" 
-                        checked={selectedModules.includes(mod.code)}
-                        onChange={() => toggleModule(mod.code)}
-                        className="rounded"
-                      />
-                      <span className="text-sm font-medium">{mod.name}</span>
-                    </label>
-                  ))}
+              <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-lg font-bold border-b pb-2 mb-4">Licensed Modules</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {moduleList.map(mod => (
+                      <label key={mod.code} className="flex items-center space-x-2 p-2 border rounded hover:bg-slate-50 dark:bg-slate-800/50 cursor-pointer">
+                        <input 
+                          type="checkbox" 
+                          checked={selectedModules.includes(mod.code)}
+                          onChange={() => toggleModule(mod.code)}
+                          className="rounded"
+                        />
+                        <span className="text-sm font-medium">{mod.name}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold border-b pb-2 mb-4">Home Dashboard Cards</h3>
+                  <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+                    {Object.entries(DASHBOARD_CARDS).map(([modKey, cards]) => (
+                      <div key={modKey} className="border-b pb-2 last:border-0 dark:border-slate-700">
+                        <h4 className="font-semibold text-sm text-slate-500 uppercase tracking-wider mb-2">{modKey}</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {cards.map(c => (
+                            <label key={c.key} className="flex items-center space-x-2">
+                              <input 
+                                type="checkbox"
+                                checked={selectedModules.includes(`card:${c.key}`)}
+                                onChange={() => toggleModule(`card:${c.key}`)}
+                                className="rounded text-blue-600"
+                              />
+                              <span className="text-xs">{c.label}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 

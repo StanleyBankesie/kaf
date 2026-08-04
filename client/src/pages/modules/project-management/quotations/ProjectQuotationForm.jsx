@@ -124,7 +124,7 @@ export default function ProjectQuotationForm() {
       "1. Validity: This quotation is valid for the period stated above.\n2. Payment: Payment is required as per the payment type selected.\n3. Timeline: Project phases will commence within the agreed timeline after quotation acceptance.\n4. Taxes: All prices are subject to applicable taxes as shown.",
     remarks: "",
     payment_type: "CASH",
-    currency_id: 4,
+    currency_id: "",
     exchange_rate: 1,
   });
 
@@ -389,16 +389,9 @@ export default function ProjectQuotationForm() {
         ? response.data.items
         : [];
       setCurrencies(arr);
-      const cedi =
-        arr.find(
-          (c) =>
-            String(c.code || c.currency_code || "").toUpperCase() === "GHS",
-        ) ||
-        arr.find((c) =>
-          /ghana|cedi/i.test(String(c.name || c.currency_name || "")),
-        );
-      if (cedi) {
-        setFormData((prev) => ({ ...prev, currency_id: cedi.id }));
+      const baseCur = arr.find((c) => Number(c.is_base) === 1 || c.is_base === true);
+      if (isNew && !formData.currency_id && baseCur) {
+        setFormData((prev) => ({ ...prev, currency_id: baseCur.id }));
       }
     } catch (error) {
       console.error("Error fetching currencies:", error);
@@ -531,7 +524,7 @@ export default function ProjectQuotationForm() {
           terms_and_conditions: data.terms_and_conditions || "",
           remarks: data.remarks || "",
           payment_type: data.payment_type || "CASH",
-          currency_id: data.currency_id || 4,
+          currency_id: data.currency_id || "",
           exchange_rate: data.exchange_rate || 1,
         });
 
@@ -899,7 +892,7 @@ export default function ProjectQuotationForm() {
           : "Project quotation created successfully.",
       );
       setTimeout(() => {
-        navigate("/project-management");
+        navigate("/project-management?section=Reports%20%26%20Analytics");
       }, 600);
     } catch (error) {
       console.error("Error saving project quotation:", error);
@@ -1042,7 +1035,7 @@ export default function ProjectQuotationForm() {
               <Printer className="w-6 h-6" />
             </button>
             <Link
-              to="/project-management"
+              to="/project-management?section=Reports%20%26%20Analytics"
               className="text-white hover:text-gray-200"
             >
               <ArrowLeft className="w-6 h-6" />
@@ -1593,7 +1586,7 @@ export default function ProjectQuotationForm() {
           </div>
           <div className="flex justify-end gap-3 mt-6 pt-6 border-t border-gray-200 print:hidden">
             <Link
-              to="/project-management"
+              to="/project-management?section=Reports%20%26%20Analytics"
               className="px-6 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
             >
               Cancel

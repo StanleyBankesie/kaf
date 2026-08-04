@@ -1,1 +1,26 @@
-import { pool, query } from './db/pool.js'; async function main() { try { const sql = 'SELECT b.id, b.bill_no, b.bill_date, b.status, b.payment_status, b.total_amount, b.amount_paid, b.client_name, b.supplier_id, s.supplier_name, b.created_by, (SELECT username FROM adm_users WHERE id = b.created_by) AS created_by_username, b.created_at FROM pur_service_bills b LEFT JOIN pur_suppliers s ON s.id = b.supplier_id AND s.company_id = b.company_id WHERE b.company_id = :companyId AND (:branchIdsStr = \'\' OR FIND_IN_SET(b.branch_id, :branchIdsStr))'; const res = await query(sql, { companyId: 1, branchIdsStr: '' }); console.log('Rows:', res.length); } catch (e) { console.error('Query Error:', e.message); } finally { process.exit(); } } main();
+import { query } from './db/pool.js';
+
+async function run() {
+  try {
+    const res = await query(`
+          SELECT tb.id, tb.bill_no, tb.bill_date,
+                 tb.total_amount as net_amount,
+                 COALESCE(tb.amount_paid, 0) as amount_paid,
+                 (tb.total_amount - COALESCE(tb.amount_paid, 0)) as balance_amount,
+                 COALESCE(tb.payment_status, 'UNPAID') as payment_status,
+                 COALESCE(tb.due_date, tb.bill_date) as due_date,
+                 s.supplier_name,
+                 'Transportation' as source,
+                 NULL as items
+          FROM trans_transportation_bills tb
+          LEFT JOIN pur_suppliers s ON tb.supplier_id = s.id
+          WHERE tb.supplier_id = 24
+    `);
+    console.log(res);
+    process.exit(0);
+  } catch (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+}
+run();

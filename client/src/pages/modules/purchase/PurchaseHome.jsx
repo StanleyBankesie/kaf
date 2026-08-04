@@ -64,6 +64,7 @@ function PurchaseFeaturePage({ title, description }) {
 
 export const purchaseSections = [
   {
+    icon: "🛒",
     title: "Procurement",
     features: [
       { name: "Direct Purchase", path: "/purchase/direct-purchase", description: "Create quick single-step purchases", icon: "⚡" },
@@ -101,6 +102,7 @@ export const purchaseSections = [
     ],
   },
   {
+    icon: "🗂️",
     title: "Master Data",
     features: [
       { name: "Suppliers", path: "/purchase/suppliers", description: "Manage suppliers and contacts", icon: "🏭" },
@@ -208,6 +210,7 @@ function PurchaseHomeIndex() {
 
   return (
     <ModuleDashboard
+      useSectionNavigation={true}
       title="🛒 Purchase"
       description="Purchase management and procurement workflows"
       stats={stats}
